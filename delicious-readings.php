@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Delicious Readings
- * Description:  Publish a reading list using your Delicious bookmarks.
+ * Description:  Publish a reading list using your Delicious bookmarks
  * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
@@ -72,7 +72,7 @@ function dr_fetch_feed( $args ) {
 		'display_archive'  => true,
 		'archive_text'     => __( 'More posts', 'delicious-readings' ),
 		'display_arch_arr' => true,
-		'new_tab'         => false,
+		'new_tab'          => false,
 		'nofollow'         => true
 	);
 	$args = wp_parse_args( $args, $defaults );
@@ -90,7 +90,7 @@ function dr_fetch_feed( $args ) {
 
 	<?php if( is_wp_error( $rss ) ) { ?>
 		<li class="reading-list-li">
-			<?php printf( __( 'There was a problem with your feed! The error is %s', 'delicious-readings' ), $rss->get_error_message() ); ?>
+			<?php printf( __( 'There was a problem with your feed! The error is %s', 'delicious-readings' ), '<code>' . $rss->get_error_message() . '</code>' ); ?>
 		</li>
 	<?php } else {
 		if( $quantity > 10 ) $quantity = 10;
@@ -105,15 +105,15 @@ function dr_fetch_feed( $args ) {
 				<li class="reading-list-li">
 
 					<?php // Title
-						if( $display_arrow ) $arrow        = '&nbsp;&rarr;';     else $arrow = '';
+						if( $display_arrow ) $arrow        = '&nbsp;&rarr;';            else $arrow = '';
 						if( $new_tab )       $new_tab_link = ' target="_blank"';
-						if( $nofollow )      $nofollow_txt = ' rel="nofollow"';
+						if( $nofollow )      $rel_txt      = 'rel="bookmark nofollow"'; else $rel_txt = 'rel="bookmark"';
 					?>
 
 					<?php $title = sprintf( __( 'Read &laquo;%s&raquo;', 'delicious-readings' ), $item->get_title() ); ?>
 
 					<p class="reading-list-title">
-						<a rel="bookmark" href="<?php echo $item->get_permalink(); ?>" title="<?php echo $title; ?>"<?php echo $new_tab_link . $nofollow_txt; ?>>
+						<a <?php echo $rel_txt; ?> href="<?php echo $item->get_permalink(); ?>" title="<?php echo $title; ?>"<?php echo $new_tab_link; ?>>
 							<?php echo $item->get_title() . $arrow; ?>
 						</a>
 					</p>
@@ -180,7 +180,7 @@ function dr_fetch_feed( $args ) {
  *
  * @since 1.1
  */
-include( 'delicious-readings-widget.php' );
+include_once( 'delicious-readings-widget.php' );
 
 
 /**

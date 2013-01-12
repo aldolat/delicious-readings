@@ -3,8 +3,8 @@ Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/
 Tags: delicious, readings, bookmarks, widget
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 1.0
+Tested up to: 3.5
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,6 +60,8 @@ So, for example, a link could be: `http://delicious.com/v2/rss/myusername/mytag`
 
 * Moved the widget into a separate file.
 * Fixed a typo in the widget panel.
+* Fixed a bug in the "nofollow" value for rel attribute.
+* Security focusing.
 
 = 1.0 =
 First release of the plugin.

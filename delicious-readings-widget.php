@@ -28,7 +28,7 @@ class DR_Widget extends WP_Widget {
 			'description' => __( 'Publish a reading list using your Delicious bookmarks', 'delicious-readings' )
 		);
 		$control_ops = array(
-			'width' => 350,
+			'width'   => 350,
 			'id_base' => 'dr-widget'
 		);
 		$this->WP_Widget( 'dr-widget', __( 'Delicious Readings', 'delicious-readings' ), $widget_ops, $control_ops );
@@ -64,7 +64,7 @@ class DR_Widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title']             = strip_tags( $new_instance['title'] );
-		$instance['feed_url']          = strip_tags( $new_instance['feed_url'] );
+		$instance['feed_url']          = esc_url( strip_tags( $new_instance['feed_url'] ) );
 		$instance['quantity']          = absint( strip_tags( $new_instance['quantity'] ) );
 			if( $instance['quantity'] == '' || ! is_numeric( $instance['quantity'] ) ) $instance['quantity'] = 5;
 			if( $instance['quantity'] > 10 ) $instance['quantity'] = 10;
@@ -127,14 +127,14 @@ class DR_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
 				<?php _e( 'Title:', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'feed_url' ); ?>">
 				<?php _e( 'Enter the feed URL:', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'feed_url' ); ?>" name="<?php echo $this->get_field_name( 'feed_url' ); ?>" type="text" value="<?php echo $instance['feed_url']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'feed_url' ); ?>" name="<?php echo $this->get_field_name( 'feed_url' ); ?>" type="text" value="<?php echo esc_attr( $instance['feed_url'] ); ?>" />
 			<br />
 			<em>
 				<span><?php printf( __( 'Usually the feed URL for a Delicious tag has this form: %s.', 'delicious-readings' ), '<code>http://delicious.com/v2/rss/USERNAME/TAG-NAME</code>' ); ?></span>
@@ -147,14 +147,14 @@ class DR_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'quantity' ); ?>">
 				<?php _e( 'Maximum number of items (maximum 10 items):', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'quantity' ); ?>" name="<?php echo $this->get_field_name( 'quantity' ); ?>" type="text" value="<?php echo $instance['quantity']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'quantity' ); ?>" name="<?php echo $this->get_field_name( 'quantity' ); ?>" type="text" value="<?php echo esc_attr( $instance['quantity'] ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'time' ); ?>">
 				<?php _e( 'Minimum time between two fetchings (in seconds, minimum 3600):', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'time' ); ?>" name="<?php echo $this->get_field_name( 'time' ); ?>" type="text" value="<?php echo $instance['time']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'time' ); ?>" name="<?php echo $this->get_field_name( 'time' ); ?>" type="text" value="<?php echo esc_attr( $instance['time'] ); ?>" />
 		</p>
 
 		<hr />
@@ -183,7 +183,7 @@ class DR_Widget extends WP_Widget {
 				<br />
 				<?php printf( __( '(%s means full text)', 'delicious-readings' ), '<code>0</code>' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'truncate' ); ?>" name="<?php echo $this->get_field_name( 'truncate' ); ?>" type="text" value="<?php echo $instance['truncate']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'truncate' ); ?>" name="<?php echo $this->get_field_name( 'truncate' ); ?>" type="text" value="<?php echo esc_attr( $instance['truncate'] ); ?>" />
 		</p>
 
 		<hr />
@@ -199,7 +199,7 @@ class DR_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'date_text' ); ?>">
 				<?php _e( 'Text before the date:', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'date_text' ); ?>" name="<?php echo $this->get_field_name( 'date_text' ); ?>" type="text" value="<?php echo $instance['date_text']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'date_text' ); ?>" name="<?php echo $this->get_field_name( 'date_text' ); ?>" type="text" value="<?php echo esc_attr( $instance['date_text'] ); ?>" />
 			<br />
 			<em><?php _e( 'A space will be added after the text.', 'delicious-readings' ); ?></em>
 		</p>
@@ -217,7 +217,7 @@ class DR_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'tags_text' ); ?>">
 				<?php _e( 'Text before tags list:', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'tags_text' ); ?>" name="<?php echo $this->get_field_name( 'tags_text' ); ?>" type="text" value="<?php echo $instance['tags_text']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'tags_text' ); ?>" name="<?php echo $this->get_field_name( 'tags_text' ); ?>" type="text" value="<?php echo esc_attr( $instance['tags_text'] ); ?>" />
 			<br />
 			<em><?php _e( 'A space will be added after the text.', 'delicious-readings' ); ?></em>
 		</p>
@@ -251,7 +251,7 @@ class DR_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'archive_text' ); ?>">
 				<?php _e( 'Use this text for the archive link:', 'delicious-readings' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'archive_text' ); ?>" name="<?php echo $this->get_field_name( 'archive_text' ); ?>" type="text" value="<?php echo $instance['archive_text']; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'archive_text' ); ?>" name="<?php echo $this->get_field_name( 'archive_text' ); ?>" type="text" value="<?php echo esc_attr( $instance['archive_text'] ); ?>" />
 		</p>
 
 		<p>
