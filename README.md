@@ -1,10 +1,10 @@
 # Delicious Readings #
 **Contributors:** aldolat  
-**Donate link:** http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/  
+**Donate link:** http://dev.aldolat.it/projects/delicious-readings/  
 **Tags:** delicious, readings, bookmarks, widget  
 **Requires at least:** 3.0  
-**Tested up to:** 3.5  
-**Stable tag:** 1.1  
+**Tested up to:** 3.5.1  
+**Stable tag:** 2.0  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -17,7 +17,7 @@ it retrieves the bookmarks from a specific tag and publishes them on your sideba
 
 I could be useful, for example, to publish your readings on the Web.
 Let's say that you read a webpage and bookmark it as "readings".
-This plugin can get the bookmarks from the tag "readings" (or whatever it is) and display them on a widget in your sidebar.
+This plugin can get the bookmarks from the tag "readings" (or whatever it is) and display them on a widget in your sidebar. You can also use a shortcode if you want to display your reading list on a static page or on a single post.
 
 The plugin may display for each tag:
 
@@ -28,6 +28,53 @@ The plugin may display for each tag:
 * The link to the entire archive of that tag on Delicious
 
 After the plugin's activation, you will have a new widget in Appearance / Widgets.
+
+**Usage as shortcode**
+
+You can also use the plugin's shortcode to display your list on a static page or on a single post. Use:
+
+`
+[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME"]
+`
+
+Change `USERNAME` and `TAG-NAME` as required.
+
+In the widget you can use the full set of options. So, for example, if you want to display the tags, use:
+
+`
+[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME" display_tags=true]
+`
+
+**Usage as PHP function**
+
+You can also use the main PHP function directly in your theme. Add these lines where you want it be displayed:
+
+`
+<?php if ( function_exists( 'dr_fetch_feed' ) ) {
+	$args = array(
+		'feed_url'         => '',
+		'quantity'         => 5,
+		'display_desc'     => false,
+		'truncate'         => 0,
+		'display_date'     => false,
+		'date_text'        => 'Stored on:',
+		'display_tags'     => false,
+		'tags_text'        => 'Tags:',
+		'display_hashtag'  => true,
+		'display_arrow'    => false,
+		'display_archive'  => true,
+		'archive_text'     => 'More posts',
+		'display_arch_arr' => true,
+		'new_tab'          => false,
+		'nofollow'         => true,
+	);
+	dr_fetch_feed( $args );
+} ?>
+`
+
+Make sure to properly use the opening and closing tags `<?php` and `?>` respectively.
+
+The only mandatory option is `feed_url`. Also change `USERNAME` and `TAG-NAME` as required. The other options are the default options which you can change according your needs. It isn't necessary to insert all of them.
 
 ## Installation ##
 
@@ -50,7 +97,7 @@ This section describes how to install the plugin and get it working.
 
 ### The rendered text on my blog is not similar to the screenshot ###
 
-You have to modify the style.css of yout theme to suit your needs.
+You have to modify the style.css of yout theme to fit your needs.
 
 ### What link have I to insert in the widget? ###
 
@@ -59,6 +106,11 @@ where `USERNAME` is your username on Delicious and `TAG-NAME` is the tag that co
 So, for example, a link could be: `http://delicious.com/v2/rss/myusername/mytag`. Obviously adjust it to your real username ad tag.
 
 ## Changelog ##
+
+### 2.0 ###
+
+* NEW: Added the shortcode to display your reading list on a static page or on a single post (thanks to @redhatgal for the tip).
+* Minor bug fixings.
 
 ### 1.1 ###
 
