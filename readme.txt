@@ -33,24 +33,19 @@ After the plugin's activation, you will have a new widget in Appearance / Widget
 
 You can also use the plugin's shortcode to display your list on a static page or on a single post. Use:
 
-`
-[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME"]
-`
+`[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME"]`
 
 Change `USERNAME` and `TAG-NAME` as required.
 
 In the widget you can use the full set of options. So, for example, if you want to display the tags, use:
 
-`
-[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME" display_tags=true]
-`
+`[dreadings feed_url="http://delicious.com/v2/rss/USERNAME/TAG-NAME" display_tags=true]`
 
 **Usage as PHP function**
 
 You can also use the main PHP function directly in your theme. Add these lines where you want it be displayed:
 
-`
-<?php if ( function_exists( 'dr_fetch_feed' ) ) {
+`<?php if ( function_exists( 'dr_fetch_feed' ) ) {
 	$args = array(
 		'feed_url'         => '',
 		'quantity'         => 5,
@@ -69,8 +64,7 @@ You can also use the main PHP function directly in your theme. Add these lines w
 		'nofollow'         => true,
 	);
 	dr_fetch_feed( $args );
-} ?>
-`
+} ?>`
 
 Make sure to properly use the opening and closing tags `<?php` and `?>` respectively.
 
