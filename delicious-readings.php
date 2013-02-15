@@ -1,15 +1,17 @@
 <?php
-/**
+/*
  * Plugin Name: Delicious Readings
  * Description:  Publish a reading list using your Delicious bookmarks
  * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
- * Version: 1.1
+ * Version: 2.0
  * License: GPLv3 or later
  * Text Domain: delicious-readings
  * Domain Path: /languages/
- *
+ */
+
+/*
  * Copyright (C) 2012  Aldo Latino  (email : aldolat@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
