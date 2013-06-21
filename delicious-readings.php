@@ -186,7 +186,7 @@ function dr_fetch_feed( $args ) {
  *
  * @since 1.1
  */
-include_once( 'delicious-readings-widget.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'delicious-readings-widget.php' );
 
 
 /**
@@ -194,7 +194,7 @@ include_once( 'delicious-readings-widget.php' );
  *
  * @since 2.0
  */
-include_once( 'delicious-readings-shortcode.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'delicious-readings-shortcode.php' );
 
 
 /**
