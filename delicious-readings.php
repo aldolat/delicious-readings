@@ -158,7 +158,7 @@ function get_dr_fetch_feed( $args ) {
 
 	$output .= '</ul>';
 
-	if( $display_archive ) {
+	if( ! is_wp_error( $rss ) && $display_archive ) {
 		if( $display_arch_arr ) $arrow = '&nbsp;&rarr;'; else $arrow = '';
 		$output .= '<p class="reading-list-more">';
 			$output .= '<a href="' .  $rss->get_link() . '"' .  $new_tab_link . '>';
