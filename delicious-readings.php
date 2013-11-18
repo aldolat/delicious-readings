@@ -5,7 +5,7 @@
  * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
- * Version: 2.1
+ * Version: 2.2
  * License: GPLv3 or later
  * Text Domain: delicious-readings
  * Domain Path: /languages/
@@ -102,7 +102,7 @@ function get_dr_fetch_feed( $args ) {
 					// Title
 					if( $display_arrow )    $arrow        = '&nbsp;&rarr;';            else $arrow = '';
 					if( isset( $new_tab ) ) $new_tab_link = ' target="_blank"';
-					if( $nofollow )         $rel_txt      = ' rel="bookmark nofollow"'; else $rel_txt = 'rel="bookmark"';
+					if( $nofollow )         $rel_txt      = ' rel="bookmark nofollow"'; else $rel_txt = ' rel="bookmark"';
 
 					$title = sprintf( __( 'Read &laquo;%s&raquo;', 'delicious-readings' ), $item->get_title() );
 
