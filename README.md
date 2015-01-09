@@ -45,7 +45,7 @@ In the widget you can use the full set of options. So, for example, if you want 
 
 You can also use the main PHP function directly in your theme. Add these lines where you want it be displayed:
 
-`<?php if ( function_exists( 'dr_fetch_feed' ) ) {
+`if ( function_exists( 'dr_fetch_feed' ) ) {
 	$args = array(
 		'feed_url'         => '',
 		'quantity'         => 5,
@@ -64,7 +64,7 @@ You can also use the main PHP function directly in your theme. Add these lines w
 		'nofollow'         => true,
 	);
 	dr_fetch_feed( $args );
-} ?>`
+}`
 
 Make sure to properly use the opening and closing tags `<?php` and `?>` respectively.
 
@@ -81,10 +81,10 @@ This section describes how to install the plugin and get it working.
 ## Screenshots ##
 
 ### 1. The dashboard panel to set up the widget ###
-![1. The dashboard panel to set up the widget](http://s.wordpress.org/extend/plugins/delicious-readings/screenshot-1.png)
+![1. The dashboard panel to set up the widget](http://ps.w.org/delicious-readings/assets/screenshot-1.png)
 
 ### 2. An example of rendered widget ###
-![2. An example of rendered widget](http://s.wordpress.org/extend/plugins/delicious-readings/screenshot-2.png)
+![2. An example of rendered widget](http://ps.w.org/delicious-readings/assets/screenshot-2.png)
 
 
 ## Frequently Asked Questions ##

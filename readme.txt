@@ -45,7 +45,7 @@ In the widget you can use the full set of options. So, for example, if you want 
 
 You can also use the main PHP function directly in your theme. Add these lines where you want it be displayed:
 
-`<?php if ( function_exists( 'dr_fetch_feed' ) ) {
+`if ( function_exists( 'dr_fetch_feed' ) ) {
 	$args = array(
 		'feed_url'         => '',
 		'quantity'         => 5,
@@ -64,7 +64,7 @@ You can also use the main PHP function directly in your theme. Add these lines w
 		'nofollow'         => true,
 	);
 	dr_fetch_feed( $args );
-} ?>`
+}`
 
 Make sure to properly use the opening and closing tags `<?php` and `?>` respectively.
 
