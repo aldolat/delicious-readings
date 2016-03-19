@@ -5,7 +5,7 @@
  * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-readings/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
- * Version: 2.4.1
+ * Version: 2.4.2
  * License: GPLv3 or later
  * Text Domain: delicious-readings
  * Domain Path: /languages/
@@ -32,7 +32,7 @@
 /**
  * Define the version of the plugin.
  */
-define( 'DRPLUGIN_VERSION', '2.4.1' );
+define( 'DRPLUGIN_VERSION', '2.4.2' );
 
 /**
  * Check for the cache lifetime in the database and set it to 3600 seconds minimum.
@@ -106,7 +106,7 @@ function get_dr_fetch_feed( $args ) {
 	} else {
 		if( $quantity > 100 ) $quantity = 100;
 		$maxitems  = $rss->get_item_quantity( $quantity );
-		$rss_items = $rss->get_items( 0, $maxitems );
+		$rss_items = $rss->get_items( 1, $maxitems );
 		if( $maxitems == 0 ) {
 			$output .= '<li class="reading-list-li">';
 				$output .= __( 'No items.', 'delicious-readings' );
