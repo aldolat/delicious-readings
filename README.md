@@ -3,7 +3,7 @@
 **Donate link:** http://dev.aldolat.it/projects/delicious-readings/  
 **Tags:** delicious, readings, bookmarks, widget  
 **Requires at least:** 3.0  
-**Tested up to:** 4.6  
+**Tested up to:** 4.9  
 **Stable tag:** 2.4.2  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
@@ -69,6 +69,10 @@ You can also use the main PHP function directly in your theme. Add these lines w
 Make sure to properly use the opening and closing tags `<?php` and `?>` respectively.
 
 The only mandatory option is `feed_url`. Also change `USERNAME` and `TAG-NAME` as required. The other options are the default options which you can change according your needs. It isn't necessary to insert all of them.
+
+**Privacy Policy**
+
+This plugin does not collect any user data.
 
 ## Installation ##
 
