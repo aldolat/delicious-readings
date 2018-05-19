@@ -70,6 +70,10 @@ Make sure to properly use the opening and closing tags `<?php` and `?>` respecti
 
 The only mandatory option is `feed_url`. Also change `USERNAME` and `TAG-NAME` as required. The other options are the default options which you can change according your needs. It isn't necessary to insert all of them.
 
+**Privacy Policy**
+
+This plugin does not collect any user data.
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
