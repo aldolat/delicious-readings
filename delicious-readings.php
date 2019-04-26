@@ -106,7 +106,7 @@ function get_dr_fetch_feed( $args ) {
 	} else {
 		if( $quantity > 100 ) $quantity = 100;
 		$maxitems  = $rss->get_item_quantity( $quantity );
-		$rss_items = $rss->get_items( 1, $maxitems );
+		$rss_items = $rss->get_items( 0, $maxitems );
 		if( $maxitems == 0 ) {
 			$output .= '<li class="reading-list-li">';
 				$output .= __( 'No items.', 'delicious-readings' );
